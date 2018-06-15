@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighborhood Map</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-brand" style="text-align:center;">
+            Top Hotels in India
+          </div>
+        </div>
+
+        <form class="navbar-form" role="search">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="name" data-bind="textInput: searchhotel, valueUpdate: 'afterkeydown'">
+              <div class="input-group-btn">
+                  <button class="btn btn-success"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <main class="container-fluid">
+        <div class="row">
+            <div id="map"></div>
+            <aside class="col-md-2 collapsed in">
+                <div class="navside">
+                    <div class="list-group" data-bind="foreach: locationList">
+                        <a href="#" class="list-group-item list-group-item-action" data-bind="text: title, click: show"></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <!-- Knockout.js -->
+    <script src="js/lib/knockout.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/viewmodel.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry&key=AIzaSyCMCPhHS6D8F1bL7JFSJ7_3SUm6KfM16v8&callback=initMap" onerror="mapError()">
+    </script>
+  </body>
+</html>
